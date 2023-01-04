@@ -1,7 +1,5 @@
 <template>
-  <aside class="bd-sidebar" @click="navTo">
-    <nav>asd</nav>
-  </aside>
+  <aside class="bd-sidebar" @click="navTo"></aside>
 </template>
 <script>
 import { defineComponent } from 'vue'

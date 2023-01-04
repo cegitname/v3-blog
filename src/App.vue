@@ -2,7 +2,8 @@
   <m-header />
   <div class="container-xxl">
     <m-aside v-if="!ifAside" />
-    <router-view></router-view>
+    <m-main></m-main>
+    <m-footer></m-footer>
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import { computed, defineComponent } from 'vue'
 import mHeader from '@/layout/mHeader.vue'
 import mAside from '@/layout/mAside.vue'
+import mFooter from '@/layout/footer.vue'
+import mMain from '@/layout/mMain.vue'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
-  components: { mHeader, mAside },
+  components: { mHeader, mAside, mFooter, mMain },
   setup() {
     const routeRef = useRoute()
     const ifAside = computed(() => {

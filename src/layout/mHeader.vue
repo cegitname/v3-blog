@@ -1,31 +1,50 @@
 <template>
   <div class="container">
-    <header
-      class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
-    >
-      <a
-        href="/"
-        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
-      >
-        <svg class="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap" />
-        </svg>
-        <span class="fs-4">Simple header</span>
-      </a>
-
-      <ul class="nav nav-pills">
-        <li class="nav-item" v-for="navItem in navList" :key="navItem.name">
+    <header class="blog-header lh-1 py-3 border-bottom">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1"></div>
+        <div class="col-4 text-center">
           <a
-            href="#"
-            @click.prevent="linkTo(navItem)"
-            class="nav-link"
-            :class="{ active: navItem.name === 'H5' }"
-            aria-current="page"
-            >{{ navItem.name }}</a
+            href="/"
+            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
           >
-        </li>
-      </ul>
+            <svg class="bi me-2" width="40" height="32">
+              <use xlink:href="#bootstrap" />
+            </svg>
+            <span class="fs-4">Simple header</span>
+          </a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <a class="link-secondary" href="#" aria-label="Search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="mx-3"
+              role="img"
+              viewBox="0 0 24 24"
+            >
+              <title>Search</title>
+              <circle cx="10.5" cy="10.5" r="7.5" />
+              <path d="M21 21l-5.2-5.2" />
+            </svg>
+          </a>
+          <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+        </div>
+      </div>
     </header>
+    <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex">
+        <a class="p-2 link-secondary" href="#">World</a>
+        <a class="p-2 link-secondary" href="#">U.S.</a>
+        <a class="p-2 link-secondary" href="#">Technology</a>
+      </nav>
+    </div>
   </div>
 </template>
 
