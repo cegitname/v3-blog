@@ -1,5 +1,5 @@
 <template>
-  <footer class="blog-footer fixed-bottom">
+  <footer class="blog-footer fixed-bottom sticky-bottom">
     <p>
       Blog template built for
       <a href="https://getbootstrap.com/">Bootstrap</a> by

@@ -6,7 +6,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'root',
-    redirect: '/read'
+    redirect: '/homeList'
+  },
+  {
+    path: '/homeList',
+    name: 'homeList',
+    component: () => import('@/views/homeList/index')
   },
   {
     path: '/h5',
