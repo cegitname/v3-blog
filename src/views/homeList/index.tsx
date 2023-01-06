@@ -1,15 +1,15 @@
 import { defineComponent } from 'vue'
 import banner from './banner'
-import style from './index.module.less'
+import hocList from '@/components/hocList'
 export default defineComponent({
-  components: { banner },
+  components: { banner, hocList },
   setup() {
     const list = [
       {
         id: '1',
         icon: require('@/assets/logo.png'),
-        name: 'H5',
-        path: '/h5',
+        name: 'h5list',
+        path: '/h5list',
         desc: 'Some quick example text to build on the card title and make up the bulk of the card content.'
       },
       {
@@ -22,25 +22,10 @@ export default defineComponent({
     ]
     return () => {
       return (
-        <div>
+        <div class="container">
           <banner />
-          <div class="row  g-3">
-            {list.map((item) => {
-              return (
-                <div class="col-3">
-                  <div class={['card', 'red']}>
-                    <img src={item.icon} class={['card-img-top']} alt="" />
-                    <div class="card-body">
-                      <h5 class="card-title">{item.name}</h5>
-                      <p class="card-text">{item.desc}</p>
-                      <a href="#" class="btn btn-primary">
-                        Go view
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+          <div class="row  g-3 bg-light p-4">
+            <hoc-list list={list}></hoc-list>
           </div>
         </div>
       )

@@ -8,10 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "ant-design-vue": "^3.2.15",
     "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
     "normalize.css": "^8.0.1",
-    "style-loader": "^3.3.1",
     "vue": "^3.2.13",
     "vue-router": "^4.1.6"
   },
@@ -23,6 +23,7 @@
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
+    "babel-plugin-import": "^1.13.6",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
