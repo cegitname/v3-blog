@@ -19,9 +19,8 @@ export default defineComponent({
   setup(props, { slots }) {
     const router = useRouter()
     const handleClick = (e: any, targetView: viewItem) => {
-      console.log(targetView.path)
       e.preventDefault()
-      router.push({ path: '/doc' })
+      router.push({ path: targetView.path })
     }
     return () => {
       const list: Array<viewItem> = props.list

@@ -28,6 +28,11 @@ export default defineComponent({
   setup() {
     const list = [
       {
+        name: 'Components',
+        path: '/components/login',
+        desc: 'Implement component functions'
+      },
+      {
         name: 'JavaScript',
         path: '/javascrpt',
         desc: 'https://developer.mozilla.org'
@@ -61,11 +66,6 @@ export default defineComponent({
         name: 'Vite',
         path: '/vite',
         desc: 'https://vitejs.dev/'
-      },
-      {
-        name: 'Components',
-        path: '/components',
-        desc: 'Implement component functions'
       },
       {
         name: 'Others',

@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Layout } from 'ant-design-vue'
 import { defineComponent } from 'vue'
-import mMenu from './mMenu'
+import mMenu from './mMenu.vue'
 export default defineComponent({
   components: {
     [Layout.name]: Layout,

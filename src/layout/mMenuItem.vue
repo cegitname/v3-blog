@@ -1,10 +1,13 @@
+<template>
+  <div>menuItem</div>
+</template>
+
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Menu',
   setup() {
-    return () => {
-      return <div>menu</div>
-    }
+    return {}
   }
 })
+</script>
