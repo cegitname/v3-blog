@@ -4,7 +4,7 @@
       <layout-sider theme="light" class="layoutSection">
         <mMenu />
       </layout-sider>
-      <layout-content class="layoutSection">
+      <layout-content class="layoutSection" style="padding-left: 18px">
         <router-view></router-view>
       </layout-content>
     </a-layout>
@@ -34,5 +34,6 @@ export default defineComponent({
 .layoutSection {
   height: 100%;
   overflow: auto;
+  background: #ffffff;
 }
 </style>

@@ -22,7 +22,7 @@
   </a-menu>
 </template>
 <script lang="ts">
-import { defineComponent, ref, unref } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { Menu, MenuProps } from 'ant-design-vue'
 import { MailOutlined } from '@ant-design/icons-vue'
 import { useStore } from 'vuex'
@@ -47,7 +47,8 @@ export default defineComponent({
   setup() {
     const state = useStore().state
     const router = useRouter()
-    const activeMemu = state.menus[0]
+    const activeMemuList = state[state.activeMenu]
+    const activeMemu = activeMemuList[0]
     const openkeys = ref<string[]>([activeMemu.key])
     const selectedKeys = activeMemu.subs
       ? ref<string[]>([activeMemu.subs[0].key])
@@ -57,8 +58,7 @@ export default defineComponent({
     }
 
     const handleMenu: MenuProps['onClick'] = (e) => {
-      console.log(e, '111')
-      state.menus.forEach((element: menuType) => {
+      activeMemuList.forEach((element: menuType) => {
         if (element.subs) {
           element.subs.forEach((item) => {
             if (item.key === e.key) {
@@ -73,7 +73,7 @@ export default defineComponent({
       })
     }
     return {
-      menuList: state.menus,
+      menuList: activeMemuList,
       openkeys,
       selectedKeys,
       handleMenu

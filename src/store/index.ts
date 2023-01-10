@@ -1,10 +1,17 @@
 import { createStore } from 'vuex'
-import menuState from './menu'
+import { componentMenus, TsMenus, Menus } from './menu'
+type menusType = 'Components' | 'TypeScript'
 const store = createStore({
   state: {
-    menus: menuState
+    componentMenus: componentMenus,
+    TsMenus: TsMenus,
+    activeMenu: 'componentMenus'
   },
-  mutations: {},
+  mutations: {
+    setActiveMenu(state, activeMenu: menusType) {
+      state.activeMenu = Menus[activeMenu]
+    }
+  },
   actions: {},
   getters: {},
   modules: {}

@@ -1,6 +1,7 @@
 import { defineComponent, PropType } from 'vue'
 import homeStyle from './index.module.less'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 interface viewItem {
   name: string
   path: string
@@ -17,8 +18,11 @@ export default defineComponent({
     }
   },
   setup(props, { slots }) {
+    const store = useStore()
     const router = useRouter()
     const handleClick = (e: any, targetView: viewItem) => {
+      console.log(targetView.name, 'targetView.name')
+      store.commit('setActiveMenu', targetView.name)
       e.preventDefault()
       router.push({ path: targetView.path })
     }

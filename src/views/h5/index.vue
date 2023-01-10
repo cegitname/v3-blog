@@ -33,6 +33,11 @@ export default defineComponent({
         desc: 'Implement component functions'
       },
       {
+        name: 'TypeScript',
+        path: '/ts/inPro',
+        desc: 'https://www.typescriptlang.org/'
+      },
+      {
         name: 'JavaScript',
         path: '/javascrpt',
         desc: 'https://developer.mozilla.org'
@@ -51,11 +56,6 @@ export default defineComponent({
         name: 'Webpack',
         path: '/webpack',
         desc: 'https://webpack.js.org/'
-      },
-      {
-        name: 'TypeScript',
-        path: '/ts',
-        desc: 'https://www.typescriptlang.org/'
       },
       {
         name: 'React',
