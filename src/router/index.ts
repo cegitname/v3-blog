@@ -46,7 +46,7 @@ const BaseRoutes: Array<RouteRecordRaw> = [
 ]
 const allRoutes = [...BaseRoutes]
 console.log(allRoutes, 'allRoutes')
-Object.keys(modules).forEach((element: any) => {
+Object.keys(modules).forEach((element: string) => {
   moduleBaseRoute.children.push(...modules[element])
 })
 allRoutes.push(moduleBaseRoute)

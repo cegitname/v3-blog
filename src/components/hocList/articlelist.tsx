@@ -21,9 +21,10 @@ export default defineComponent({
       default: () => []
     }
   },
-  setup(props, { slots }) {
+  setup(props) {
     const router = useRouter()
     const handleArticle = (item: DataItem) => {
+      console.log(item, 'ii')
       router.push({
         path: '/ts/inPro/detail'
       })

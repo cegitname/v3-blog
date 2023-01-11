@@ -20,8 +20,7 @@ export default defineComponent({
   setup(props, { slots }) {
     const store = useStore()
     const router = useRouter()
-    const handleClick = (e: any, targetView: viewItem) => {
-      console.log(targetView.name, 'targetView.name')
+    const handleClick = (e: MouseEvent, targetView: viewItem) => {
       store.commit('setActiveMenu', targetView.name)
       e.preventDefault()
       router.push({ path: targetView.path })

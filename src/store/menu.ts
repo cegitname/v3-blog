@@ -5,17 +5,21 @@ export const componentMenus = [
     key: 'Login',
     subs: [
       {
-        title: 'Vben Login',
+        title: 'vben axios',
+        path: '/components/vebenAxios',
+        key: 'vbenAxios'
+      },
+      {
+        title: 'vben login',
         path: '/components/vbenLogin',
         key: 'vbenLogin'
-      },
-      { title: '登录2', path: '/components/loginIndex1', key: 'loginIndex2' }
+      }
     ]
   },
   {
-    title: 'doc',
-    path: '/doc',
-    key: 'doc'
+    title: '代码预览',
+    path: '/components/highlight',
+    key: 'codeHighlight'
   }
 ]
 

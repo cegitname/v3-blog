@@ -17,7 +17,12 @@
           subItem.title
         }}</a-menu-item>
       </a-sub-menu>
-      <a-menu-item v-else :key="item.key">{{ item.title }}</a-menu-item>
+      <a-menu-item v-else :key="item.key">
+        <template #icon>
+          <MailOutlined />
+        </template>
+        {{ item.title }}
+      </a-menu-item>
     </template>
   </a-menu>
 </template>
@@ -55,6 +60,8 @@ export default defineComponent({
       : ref<string[]>([activeMemu.key])
     if (activeMemu.subs) {
       router.replace({ path: activeMemu.subs[0].path })
+    } else {
+      router.replace({ path: activeMemu.path })
     }
 
     const handleMenu: MenuProps['onClick'] = (e) => {
