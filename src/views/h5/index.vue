@@ -33,14 +33,19 @@ export default defineComponent({
         desc: 'Implement component functions'
       },
       {
-        name: 'TypeScript',
-        path: '/ts/inPro',
-        desc: 'https://www.typescriptlang.org/'
+        name: 'Utils',
+        path: '/utils/axios',
+        desc: 'Tool class implementation'
       },
       {
         name: 'JavaScript',
         path: '/javascrpt',
         desc: 'https://developer.mozilla.org'
+      },
+      {
+        name: 'TypeScript',
+        path: '/ts/inPro',
+        desc: 'https://www.typescriptlang.org/'
       },
       {
         name: 'Vue',

@@ -1,14 +1,14 @@
 import { RouterView } from 'vue-router'
 export default [
   {
-    path: '/components/login',
-    name: 'Components',
+    path: '/utils',
+    name: 'Utils',
     component: RouterView,
     children: [
       {
-        path: '/components/vbenLogin',
-        name: 'vbenLogin',
-        component: () => import('@/components/login/vbenLogin.vue')
+        path: '/utils/axios',
+        name: 'utilsaxios',
+        component: () => import('@/views/h5/utils/axios/axios.vue')
       }
     ]
   },

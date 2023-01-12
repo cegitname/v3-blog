@@ -5,11 +5,6 @@ export const componentMenus = [
     key: 'Login',
     subs: [
       {
-        title: 'vben axios',
-        path: '/components/vebenAxios',
-        key: 'vbenAxios'
-      },
-      {
         title: 'vben login',
         path: '/components/vbenLogin',
         key: 'vbenLogin'
@@ -30,10 +25,24 @@ export const TsMenus = [
     key: 'tsInpro'
   }
 ]
-
+export const UtilsMenus = [
+  {
+    title: '工具类',
+    path: '/utils',
+    key: 'utils',
+    subs: [
+      {
+        title: 'vben axios 封装',
+        path: '/utils/axios',
+        key: 'vben axios'
+      }
+    ]
+  }
+]
 export enum Menus {
   Components = 'componentMenus',
-  TypeScript = 'TsMenus'
+  TypeScript = 'TsMenus',
+  Utils = 'UtilsMenus'
 }
 
 export interface menuType {
