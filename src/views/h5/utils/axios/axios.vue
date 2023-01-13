@@ -45,10 +45,16 @@
       </div>
       <preCode :code="cancelerCode"></preCode>
     </a-collapse-panel>
-    <a-collapse-panel key="4" header="定义公用request" :style="customStyle">
-      <preCode :code="ContentTypeData"></preCode>
+    <a-collapse-panel key="4" header="tansform" :style="customStyle">
+      <preCode :code="transformCode"></preCode>
     </a-collapse-panel>
-    <a-collapse-panel key="9" header="defHttp" :style="customStyle">
+    <a-collapse-panel key="5" header="定义公用request" :style="customStyle">
+      <preCode :code="requestCode"></preCode>
+    </a-collapse-panel>
+    <a-collapse-panel key="6" header="post / get / put..." :style="customStyle">
+      <preCode :code="methodReuqestCode"></preCode>
+    </a-collapse-panel>
+    <a-collapse-panel key="7" header="defHttp" :style="customStyle">
       <p class="text-info bg-dark">#创建、 抛出defHttp方法</p>
       <preCode :code="ContentTypeData"></preCode>
       <preCode :code="createAxiosCode"></preCode>
@@ -63,7 +69,10 @@ import {
   useDataCode,
   AxiosClassCode,
   mainAxiosCode,
-  cancelerCode
+  cancelerCode,
+  transformCode,
+  requestCode,
+  methodReuqestCode
 } from './data'
 import { Collapse } from 'ant-design-vue'
 import { CaretRightOutlined } from '@ant-design/icons-vue'
@@ -79,7 +88,7 @@ export default defineComponent({
   setup() {
     const customStyle =
       'background: #f7f7f7;border-radius: 4px;margin-bottom: 24px;border: 0;overflow: hidden'
-    const activeKey = ref(['1'])
+    const activeKey = ref([])
     const text = `A dog is a type of domesticated animal.Known for its loyalty and faithfulness,it can be found as a welcome guest in many households across the world.`
     return {
       createAxiosCode,
@@ -90,7 +99,10 @@ export default defineComponent({
       useDataCode,
       mainAxiosCode,
       AxiosClassCode,
-      cancelerCode
+      cancelerCode,
+      transformCode,
+      requestCode,
+      methodReuqestCode
     }
   }
 })
