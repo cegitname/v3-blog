@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-import Read from '@/views/read/index.vue'
 import Layout from '@/layout/menuLayout.vue'
 interface moduless {
   [key: string]: Array<RouteRecordRaw>
@@ -21,31 +20,19 @@ const modules: moduless = modulesFiles
     moduless[moduleName] = value.default
     return moduless
   }, {})
-console.log(modules, 'modulesmodulesmodulesmodulesmodules')
 const BaseRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'root',
-    redirect: '/homeList'
-  },
-  {
-    path: '/homeList',
-    name: 'homeList',
-    component: () => import('@/views/homeList/index')
+    redirect: '/h5list'
   },
   {
     path: '/h5list',
     name: 'H5list',
-    component: () => import('@/views/h5/index.vue')
-  },
-  {
-    path: '/read',
-    name: 'Read',
-    component: Read
+    component: () => import('@/views/index.vue')
   }
 ]
 const allRoutes = [...BaseRoutes]
-console.log(allRoutes, 'allRoutes')
 Object.keys(modules).forEach((element: string) => {
   moduleBaseRoute.children.push(...modules[element])
 })

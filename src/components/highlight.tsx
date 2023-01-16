@@ -1,7 +1,5 @@
 import { defineComponent } from 'vue'
-import preCode from './preCode'
 export default defineComponent({
-  components: { preCode },
   setup() {
     const installCode = `yarn add highlight.js  
 yarn add @highlightjs/vue-plugin`
