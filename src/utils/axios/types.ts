@@ -1,5 +1,6 @@
 export type ErrorMessageMode = 'none' | 'modal' | 'message' | undefined
 export type SuccessMessageMode = ErrorMessageMode
+
 export interface RequestOptions {
   // Splicing request parameters to url
   joinParamsToUrl?: boolean
@@ -40,6 +41,7 @@ export interface Result<T = any> {
   message: string
   result: T
 }
+
 // multipart/form-data: upload file
 export interface UploadFileParams {
   // Other parameters

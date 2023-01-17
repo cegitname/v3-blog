@@ -64,7 +64,7 @@ export function isPromise<T = any>(val: unknown): val is Promise<T> {
 export function isString(val: unknown): val is string {
   return is(val, 'String')
 }
-
+// eslint-disable-next-line
 export function isFunction(val: unknown): val is Function {
   return typeof val === 'function'
 }
@@ -98,6 +98,7 @@ export const isServer = typeof window === 'undefined'
 export const isClient = !isServer
 
 export function isUrl(path: string): boolean {
+  // eslint-disable-next-line
   const reg = /^http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/
   return reg.test(path)
 }

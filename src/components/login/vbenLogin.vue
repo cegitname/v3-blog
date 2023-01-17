@@ -103,6 +103,11 @@ import {
   TwitterCircleFilled
 } from '@ant-design/icons-vue'
 import { useFormRules, LoginStateEnum } from './userLogin'
+import { login } from '@/api/login'
+interface loginResData {
+  account: string
+  password: string
+}
 export default defineComponent({
   name: 'vbenLogin',
   components: {
@@ -128,9 +133,15 @@ export default defineComponent({
     const { validForm } = useFormValid(formRef)
     async function handleLogin() {
       const data = await validForm()
+      console.log(data, 'data after handle login')
       if (!data) return
       loading.value = true
       try {
+        const res = await login({
+          username: (data as loginResData).account,
+          password: (data as loginResData).password
+        })
+        console.log(res, 'ressss')
         // login api.....
       } catch (error) {
         // createErrorModal...

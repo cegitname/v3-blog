@@ -78,6 +78,22 @@ export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'modal') 
     },
     {
       errorMessageMode: mode,
+      joinPrefix:true,// 是否拼接urlPrefix
+      isReturnNativeResponse: false, // 是否返回原生响应头 比如：需要获取响应头时使用该属性
+      isTransformResponse: true, //需要对返回数据进行处理
+      joinParamsToUrl:false, //post请求的时候添加参数到url
+      formatDate:true, //格式化提交参数时间
+      errorMessageMode:'message', //消息提示类型
+      apiUrl:'' //接口地址
+      urlPrefix:'' //if(joinPrefix) 拼接urlPrefix + url
+      joinTime: true, //加入时间戳
+      ignoreCancelToken: true, //忽略重复请求
+      withToken: true, //是否携带token
+      retryRequest: {  //重试请求
+        isOpenRetry: true,
+        count: 5,
+        waitTime: 100
+      }
     },
   );
 }`
