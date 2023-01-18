@@ -5,3 +5,4 @@ declare type TargetContext = '_self' | '_blank'
 declare interface moduless {
   [key: string]: Array<RouteRecordRaw>
 }
+declare type Nullable<T> = T | null

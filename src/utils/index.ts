@@ -1,5 +1,4 @@
 import type { RouteLocationNormalized, RouteRecordNormalized } from 'vue-router'
-import type { App, Component, Plugin } from 'vue'
 
 import { unref } from 'vue'
 import { isObject } from '@/utils/is'

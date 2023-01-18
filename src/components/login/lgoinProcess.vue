@@ -10,7 +10,7 @@
   </CodeCollapse>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import CodeCollapse from '@/components/collapseCode.vue'
 import { collapseCode, useFormRulesCode, useFormValidCode } from './dataCode'
 export default defineComponent({

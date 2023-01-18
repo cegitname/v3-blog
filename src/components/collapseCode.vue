@@ -30,7 +30,7 @@ export default defineComponent({
     [Collapse.name]: Collapse,
     ACollapsePanel: Collapse.Panel
   },
-  setup(props) {
+  setup() {
     const customStyle =
       'background: #f7f7f7;border-radius: 4px;margin-bottom: 24px;border: 0;overflow: hidden'
     return { customStyle }

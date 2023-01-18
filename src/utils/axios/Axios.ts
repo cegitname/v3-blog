@@ -4,7 +4,7 @@ import type {
   AxiosResponse,
   AxiosError
 } from 'axios'
-import type { RequestOptions, Result, UploadFileParams } from './types'
+import type { RequestOptions, cgtnResult, UploadFileParams } from './types'
 import type { CreateAxiosOptions } from './axiosTransform'
 import axios from 'axios'
 import qs from 'qs'
@@ -229,8 +229,8 @@ export class VAxios {
 
     return new Promise((resolve, reject) => {
       this.axiosInstance
-        .request<any, AxiosResponse<Result>>(conf)
-        .then((res: AxiosResponse<Result>) => {
+        .request<any, AxiosResponse<cgtnResult>>(conf)
+        .then((res: AxiosResponse<cgtnResult>) => {
           if (transformResponseHook && isFunction(transformResponseHook)) {
             try {
               const ret = transformResponseHook(res, opt)

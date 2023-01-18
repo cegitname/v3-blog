@@ -51,3 +51,4 @@ export interface menuType {
   key: string
   subs?: Array<menuType>
 }
+export type menuName = 'Components' | 'TypeScript' | 'Utils'

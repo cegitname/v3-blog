@@ -16,10 +16,7 @@ export interface RoleInfo {
  */
 export interface LoginResultModel {
   userId: string | number
-  token: {
-    access_token: string
-    expires_in: number
-  }
+  token: string
   role: RoleInfo
 }
 
@@ -39,6 +36,3 @@ export interface GetUserInfoModel {
   // 介绍
   desc?: string
 }
-
-export type ErrorMessageMode = 'none' | 'modal' | 'message' | undefined
-export type SuccessMessageMode = ErrorMessageMode

@@ -35,6 +35,11 @@ export interface RetryRequest {
   count: number
   waitTime: number
 }
+export interface cgtnResult<T = any> {
+  errorCode: number
+  errorMessage: string
+  result: T
+}
 export interface Result<T = any> {
   code: number
   type: 'success' | 'error' | 'warning'

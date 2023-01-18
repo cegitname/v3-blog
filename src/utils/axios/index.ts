@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios'
 import { clone } from 'lodash-es'
-import type { RequestOptions, Result } from './types'
+import type { RequestOptions, cgtnResult } from './types'
 import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
 import { VAxios } from './Axios'
 import { checkStatus } from './checkStatus'
@@ -9,12 +9,14 @@ import { isString, isUnDef, isNull, isEmpty } from '@/utils/is'
 import { joinTimestamp, formatRequestDate } from './helper'
 import axios from 'axios'
 import { deepMerge } from '@/utils'
-
+import { useMessage } from '@/hooks/useMessage'
+import store from '@/store'
 const globSetting = {
   urlPrefix: '',
   apiUrl: 'https://test-tim.ops.ctvit.tv'
 }
 const urlPrefix = globSetting.urlPrefix
+const { createMessage, createSuccessModal } = useMessage()
 /**
  * @description: 数据处理，方便区分多种处理方式
  */
@@ -23,7 +25,7 @@ const transform: AxiosTransform = {
    * @description: 处理响应数据。如果数据不是预期格式，可直接抛出错误
    */
   transformResponseHook: (
-    res: AxiosResponse<Result>,
+    res: AxiosResponse<cgtnResult>,
     options: RequestOptions
   ) => {
     const { isTransformResponse, isReturnNativeResponse } = options
@@ -44,22 +46,23 @@ const transform: AxiosTransform = {
       throw new Error('sys.api.apiRequestFailed')
     }
     //  这里 code，result，message为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
-    const { code, result, message } = data
+    const { errorCode, result, errorMessage } = data
 
     // 这里逻辑可以根据项目进行修改
     const hasSuccess =
-      data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS
+      data && Reflect.has(data, 'errorCode') && errorCode === ResultEnum.SUCCESS
     if (hasSuccess) {
-      let successMsg = message
+      let successMsg = errorMessage
 
       if (isNull(successMsg) || isUnDef(successMsg) || isEmpty(successMsg)) {
-        successMsg = `sys.api.operationSuccess`
+        successMsg = `操作成功！`
       }
-
-      if (options.successMessageMode === 'modal') {
-        console.log('modal')
-      } else if (options.successMessageMode === 'message') {
-        console.log('message')
+      if (options.errorMessageMode === 'modal') {
+        createSuccessModal({
+          title: successMsg
+        })
+      } else if (options.errorMessageMode === 'message') {
+        createMessage.success(successMsg)
       }
       return result
     }
@@ -67,17 +70,16 @@ const transform: AxiosTransform = {
     // 在此处根据自己项目的实际情况对不同的code执行不同的操作
     // 如果不希望中断当前请求，请return数据，否则直接抛出异常即可
     let timeoutMsg = ''
-    switch (code) {
+    switch (errorCode) {
       case ResultEnum.TIMEOUT:
-        console.log('logout')
-        // timeoutMsg = t('sys.api.timeoutMessage')
+        timeoutMsg = '登录超时,请重新登录!'
         // const userStore = useUserStoreWithOut()
         // userStore.setToken(undefined)
         // userStore.logout(true)
         break
       default:
-        if (message) {
-          timeoutMsg = message
+        if (errorMessage) {
+          timeoutMsg = errorMessage
         }
     }
 
@@ -162,10 +164,9 @@ const transform: AxiosTransform = {
   /**
    * @description: 请求拦截器处理
    */
-  requestInterceptors: (config, options) => {
-    console.log(options)
+  requestInterceptors: (config) => {
     // 请求之前处理config
-    const token = '111'
+    const token = (store as any).state.user.token
     if (token && (config as Recordable)?.requestOptions?.withToken !== false) {
       // jwt token
       ;(config as Recordable).headers.Authorization = token
@@ -184,6 +185,7 @@ const transform: AxiosTransform = {
    * @description: 响应错误处理
    */
   responseInterceptorsCatch: (axiosInstance: AxiosResponse, error: any) => {
+    console.log(error, 'error')
     // const errorLogStore = useErrorLogStoreWithOut()\rules\no-explicit-any
     // errorLogStore.addAjaxErrorInfo(error)
     const { response, code, message, config } = error || {}

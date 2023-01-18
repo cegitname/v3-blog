@@ -56,7 +56,7 @@
 
         <a-row>
           <a-col :span="8">
-            <a-button block> 手机登录 </a-button>
+            <a-button block @click="handleLogout"> 手机登录 </a-button>
           </a-col>
           <a-col :span="8" style="margin: 0 10px">
             <a-button block> 二维码登录 </a-button>
@@ -86,6 +86,7 @@
 import { defineComponent, reactive, ref } from 'vue'
 import { useFormValid } from './userLogin'
 import loginProcess from './lgoinProcess.vue'
+import { useStore } from 'vuex'
 import {
   Checkbox,
   Form,
@@ -103,7 +104,6 @@ import {
   TwitterCircleFilled
 } from '@ant-design/icons-vue'
 import { useFormRules, LoginStateEnum } from './userLogin'
-import { login } from '@/api/login'
 interface loginResData {
   account: string
   password: string
@@ -128,26 +128,28 @@ export default defineComponent({
     loginProcess
   },
   setup() {
+    const store = useStore()
     const loading = ref(false)
     const formRef = ref()
     const { validForm } = useFormValid(formRef)
     async function handleLogin() {
       const data = await validForm()
-      console.log(data, 'data after handle login')
       if (!data) return
       loading.value = true
       try {
-        const res = await login({
+        store.dispatch('login', {
           username: (data as loginResData).account,
           password: (data as loginResData).password
         })
-        console.log(res, 'ressss')
         // login api.....
       } catch (error) {
         // createErrorModal...
       } finally {
         loading.value = false
       }
+    }
+    function handleLogout() {
+      store.dispatch('logout')
     }
     const formData = reactive({
       account: '',
@@ -163,6 +165,7 @@ export default defineComponent({
       formData,
       getFormRules,
       handleLogin,
+      handleLogout,
       rememberMe,
       LoginStateEnum,
       setLoginState,

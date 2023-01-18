@@ -52,7 +52,7 @@ export default defineComponent({
   setup() {
     const state = useStore().state
     const router = useRouter()
-    const activeMemuList = state[state.activeMenu]
+    const activeMemuList = state.menus[state.menus.activeMenu]
     const activeMemu = activeMemuList[0]
     const openkeys = ref<string[]>([activeMemu.key])
     const selectedKeys = activeMemu.subs
