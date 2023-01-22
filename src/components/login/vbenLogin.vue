@@ -141,9 +141,8 @@ export default defineComponent({
           username: (data as loginResData).account,
           password: (data as loginResData).password
         })
-        // login api.....
       } catch (error) {
-        // createErrorModal...
+        // createErrorModal... 错误提示
       } finally {
         loading.value = false
       }

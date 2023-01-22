@@ -6,7 +6,7 @@
       :header="item.header"
       :style="customStyle"
     >
-      <slot :code="item.code"> </slot>
+      <slot :code="item.code" :key="item.key"> </slot>
     </a-collapse-panel>
   </a-collapse>
 </template>
