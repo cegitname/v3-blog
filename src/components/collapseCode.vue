@@ -1,5 +1,5 @@
 <template>
-  <a-collapse>
+  <a-collapse v-model:activeKey="activeKey" style="border: none">
     <a-collapse-panel
       v-for="item in codes"
       :key="item.key"
@@ -11,7 +11,7 @@
   </a-collapse>
 </template>
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, PropType, ref } from 'vue'
 import { Collapse } from 'ant-design-vue'
 interface ItemCode {
   key: string
@@ -30,10 +30,12 @@ export default defineComponent({
     [Collapse.name]: Collapse,
     ACollapsePanel: Collapse.Panel
   },
-  setup() {
+  setup(props) {
+    console.log(props, 'ppppp')
+    const activeKey = ref(['1'])
     const customStyle =
-      'background: #f7f7f7;border-radius: 4px;margin-bottom: 24px;border: 0;overflow: hidden'
-    return { customStyle }
+      'background: #ffffff;border-radius: 4px;margin-bottom: 24px;border: none;overflow: hidden'
+    return { customStyle, activeKey }
   }
 })
 </script>

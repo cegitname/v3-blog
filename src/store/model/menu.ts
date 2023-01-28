@@ -15,6 +15,18 @@ export const componentMenus = [
     title: '代码预览',
     path: '/components/highlight',
     key: 'codeHighlight'
+  },
+  {
+    title: '上传',
+    path: '/components/upload',
+    key: 'upload',
+    subs: [
+      {
+        title: 'aws 上传',
+        path: '/components/upload/aws',
+        key: 'awsUpload'
+      }
+    ]
   }
 ]
 
