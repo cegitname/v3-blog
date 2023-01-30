@@ -7284,6 +7284,11 @@ vary@~1.1.2:
   resolved "https://registry.npmmirror.com/vary/-/vary-1.1.2.tgz"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
+vue-cropper@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmmirror.com/vue-cropper/-/vue-cropper-1.0.5.tgz#eddc55a2165d721fa795c14d5d38117315904650"
+  integrity sha512-D4XXdqWmMWRLOIV9LIh7/mkH6OBOMQDFbRjwntkxmAtxOtwpC9U5ZZ6lSXw5F5cbd4g8znDjk6MuCwIL+fZSrA==
+
 vue-eslint-parser@^8.0.0, vue-eslint-parser@^8.0.1:
   version "8.3.0"
   resolved "https://registry.npmmirror.com/vue-eslint-parser/-/vue-eslint-parser-8.3.0.tgz"

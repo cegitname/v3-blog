@@ -30,8 +30,7 @@ export default defineComponent({
     [Collapse.name]: Collapse,
     ACollapsePanel: Collapse.Panel
   },
-  setup(props) {
-    console.log(props, 'ppppp')
+  setup() {
     const activeKey = ref(['1'])
     const customStyle =
       'background: #ffffff;border-radius: 4px;margin-bottom: 24px;border: none;overflow: hidden'

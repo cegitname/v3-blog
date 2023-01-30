@@ -1,7 +1,7 @@
 <template>
   <header
     style="background-color: #ffffff"
-    class="blog-header lh-1 py-3 border-bottom sticky-top mb-4"
+    class="blog-header lh-1 py-3 border-bottom mb-4"
   >
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1"></div>

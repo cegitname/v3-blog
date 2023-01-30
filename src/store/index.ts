@@ -8,7 +8,6 @@ const modules: any = modulesFiles
     moduless[moduleName] = value.default
     return moduless
   }, {})
-console.log(modules, 'modulesmodules')
 const store = createStore({
   modules
 })

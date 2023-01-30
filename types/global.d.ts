@@ -6,3 +6,6 @@ declare interface moduless {
   [key: string]: Array<RouteRecordRaw>
 }
 declare type Nullable<T> = T | null
+declare interface ComponentElRef<T extends HTMLElement = HTMLDivElement> {
+  $el: T
+}

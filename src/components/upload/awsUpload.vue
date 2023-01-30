@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Tailor @onOk="(baseData) => cutOk(baseData)" />
     <a-divider><h5>aws upload</h5></a-divider>
     <a-upload
       :show-upload-list="false"
@@ -14,6 +15,7 @@
             doneUrl
           }}</a-button>
         </p>
+        <img v-if="doneUrl" :src="doneUrl" class="doneImag" alt="" />
       </div>
       <a-button v-else class="uploadBtn">
         <upload-outlined></upload-outlined>
@@ -36,6 +38,7 @@ import { Upload, Button, Row, Col, Divider } from 'ant-design-vue'
 import { useS3upload } from './upload'
 import { collapseCode } from './dataCode'
 import CodeCollapse from '@/components/collapseCode.vue'
+import Tailor from '@/components/Tailor/index.vue'
 export default defineComponent({
   components: {
     [Divider.name]: Divider,
@@ -44,7 +47,8 @@ export default defineComponent({
     [Upload.name]: Upload,
     [Button.name]: Button,
     UploadOutlined,
-    CodeCollapse
+    CodeCollapse,
+    Tailor
   },
   setup() {
     const doneUrl = ref()
@@ -52,19 +56,20 @@ export default defineComponent({
     /**
      * 上传
      * */
-    const uploadFile = async (file) => {
-      const { s3, url } = await useS3upload(file.file)
-      if (!s3) return
-      doneUrl.value = url
-      console.log(url, 'url')
-      s3.on('httpUploadProgress', async (e) => {
-        console.log(e, 'eeee')
+    const uploadFile = async (file: any) => {
+      const pres: any = await useS3upload(file.file)
+      if (!pres.s3) return
+      doneUrl.value = pres.url
+      pres.s3.on('httpUploadProgress', async (e: any) => {
         percent.value = (parseInt(e.loaded, 10) / parseInt(e.total, 10)) * 100
         percent.value = parseInt(percent.value.toFixed(2))
       })
-      await s3.done()
+      await pres.s3.done()
     }
-    return { doneUrl, uploadFile, codes: collapseCode }
+    const cutOk = (data: any) => {
+      doneUrl.value = data
+    }
+    return { doneUrl, uploadFile, codes: collapseCode, percent, cutOk }
   }
 })
 </script>
@@ -73,6 +78,12 @@ export default defineComponent({
   margin: 16px 0;
 }
 .finishView {
-  max-width: 50%;
+  max-width: 500px;
+  overflow: hidden;
+}
+.doneImag {
+  width: 300px;
+  height: 250px;
+  margin-left: calc(50% - 150px);
 }
 </style>
