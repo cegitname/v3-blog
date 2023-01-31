@@ -1,6 +1,8 @@
 import { getFileToken } from '@/api/components'
 import { Upload } from '@aws-sdk/lib-storage'
 import { S3Client } from '@aws-sdk/client-s3'
+import { ref } from 'vue'
+import type { UploadProps, UploadFile } from 'ant-design-vue'
 interface S3ClientOpt {
   url: string
   bucket: string
@@ -72,4 +74,43 @@ export const useS3upload = async (
   } catch (error) {
     Promise.reject(error)
   }
+}
+enum uploadStatus {
+  Fail = 'fail',
+  Done = 'done',
+  OnProcess = 'onProcess',
+  Preload = 'preload',
+  Empty = ''
+}
+interface fileStackItem {
+  uid: string
+  url: string
+  percent: number
+  name: string
+  status: uploadStatus
+  run: () => any
+  type: string | undefined
+}
+const hasFile = (list: any[], target: any, key: string): boolean => {
+  return list.some((item) => item[key] === target[key])
+}
+const uploadStatck = ref<fileStackItem[]>([])
+export const fileList = ref<UploadProps['fileList']>([])
+export const uploadFiles = (currentFile: { file: UploadFile }) => {
+  console.log(currentFile, 'currentFile')
+  if (fileList.value!.length > 8) {
+    return
+  }
+  if (!hasFile(uploadStatck.value, currentFile, 'uid')) {
+    uploadStatck.value.push({
+      uid: currentFile.file.uid,
+      url: '',
+      percent: 0,
+      name: currentFile.file.name,
+      status: uploadStatus.Preload,
+      type: currentFile.file.type,
+      run: () => {}
+    })
+  }
+  console.log(uploadStatck.value, 'uploadStatck')
 }

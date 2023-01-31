@@ -25,6 +25,11 @@ export const componentMenus = [
         title: 'aws 上传',
         path: '/components/upload/aws',
         key: 'awsUpload'
+      },
+      {
+        title: '多文件上传',
+        path: '/components/upload/multi',
+        key: 'multiUpload'
       }
     ]
   },

@@ -26,6 +26,11 @@ export default [
         path: '/components/upload/aws',
         name: 'awsupload',
         component: () => import('@/components/upload/awsUpload.vue')
+      },
+      {
+        path: '/components/upload/multi',
+        name: 'multiUpload',
+        component: () => import('@/components/upload/multiUpload.vue')
       }
     ]
   },
