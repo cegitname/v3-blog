@@ -19,33 +19,29 @@ export interface opt {
 }
 
 export interface ratioItem {
-  fixedNumber: Array<number> | undefined
-  autoCropWidth?: number | null
-  autoCropHeight?: number | null
+  fixedNumber: Array<number>
   name: string
   check: boolean
+  fixed: boolean
 }
 export const ratios: ratioItem[] = [
   {
     fixedNumber: [1, 1],
     name: '1:1',
     check: false,
-    autoCropWidth: 200,
-    autoCropHeight: 200
+    fixed: true
   },
   {
     fixedNumber: [16, 9],
     name: '16:9',
     check: false,
-    autoCropWidth: 160,
-    autoCropHeight: 90
+    fixed: true
   },
   {
     fixedNumber: [9, 16],
     name: '9:16',
     check: false,
-    autoCropWidth: 90,
-    autoCropHeight: 160
+    fixed: true
   },
-  { fixedNumber: undefined, name: '自定义', check: false }
+  { fixedNumber: [], name: '自定义', check: false, fixed: false }
 ]

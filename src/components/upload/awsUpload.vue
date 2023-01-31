@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Tailor @onOk="(baseData) => cutOk(baseData)" />
     <a-divider><h5>aws upload</h5></a-divider>
     <a-upload
       :show-upload-list="false"
@@ -38,7 +37,6 @@ import { Upload, Button, Row, Col, Divider } from 'ant-design-vue'
 import { useS3upload } from './upload'
 import { collapseCode } from './dataCode'
 import CodeCollapse from '@/components/collapseCode.vue'
-import Tailor from '@/components/Tailor/index.vue'
 export default defineComponent({
   components: {
     [Divider.name]: Divider,
@@ -47,12 +45,12 @@ export default defineComponent({
     [Upload.name]: Upload,
     [Button.name]: Button,
     UploadOutlined,
-    CodeCollapse,
-    Tailor
+    CodeCollapse
   },
   setup() {
     const doneUrl = ref()
     const percent = ref(0)
+    const tailorVisible = ref(false)
     /**
      * 上传
      * */
@@ -60,6 +58,7 @@ export default defineComponent({
       const pres: any = await useS3upload(file.file)
       if (!pres.s3) return
       doneUrl.value = pres.url
+      tailorVisible.value = !!doneUrl.value
       pres.s3.on('httpUploadProgress', async (e: any) => {
         percent.value = (parseInt(e.loaded, 10) / parseInt(e.total, 10)) * 100
         percent.value = parseInt(percent.value.toFixed(2))
@@ -69,7 +68,13 @@ export default defineComponent({
     const cutOk = (data: any) => {
       doneUrl.value = data
     }
-    return { doneUrl, uploadFile, codes: collapseCode, percent, cutOk }
+    return {
+      doneUrl,
+      uploadFile,
+      codes: collapseCode,
+      percent,
+      cutOk
+    }
   }
 })
 </script>

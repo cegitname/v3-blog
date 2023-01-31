@@ -28,5 +28,10 @@ export default [
         component: () => import('@/components/upload/awsUpload.vue')
       }
     ]
+  },
+  {
+    path: '/components/tailor',
+    name: 'tailor',
+    component: () => import('@/components/Tailor/index.vue')
   }
 ]

@@ -27,6 +27,11 @@ export const componentMenus = [
         key: 'awsUpload'
       }
     ]
+  },
+  {
+    title: '图片裁剪',
+    path: '/components/tailor',
+    key: 'tailor'
   }
 ]
 
