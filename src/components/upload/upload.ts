@@ -75,20 +75,20 @@ export const useS3upload = async (
     Promise.reject(error)
   }
 }
-enum uploadStatus {
+export enum uploadStatus {
   Fail = 'fail',
   Done = 'done',
   OnProcess = 'onProcess',
   Preload = 'preload',
   Empty = ''
 }
-interface fileStackItem {
+export interface fileStackItem {
   uid: string
   url: string
   percent: number
   name: string
   status: uploadStatus
-  run: () => any
+  run: any
   type: string | undefined
 }
 const hasFile = (list: any[], target: any, key: string): boolean => {
@@ -97,7 +97,6 @@ const hasFile = (list: any[], target: any, key: string): boolean => {
 const uploadStatck = ref<fileStackItem[]>([])
 export const fileList = ref<UploadProps['fileList']>([])
 export const uploadFiles = (currentFile: { file: UploadFile }) => {
-  console.log(currentFile, 'currentFile')
   if (fileList.value!.length > 8) {
     return
   }
@@ -112,5 +111,4 @@ export const uploadFiles = (currentFile: { file: UploadFile }) => {
       run: () => {}
     })
   }
-  console.log(uploadStatck.value, 'uploadStatck')
 }

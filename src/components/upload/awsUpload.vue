@@ -57,11 +57,13 @@ export default defineComponent({
     const uploadFile = async (file: any) => {
       const pres: any = await useS3upload(file.file)
       if (!pres.s3) return
+      console.log(pres.s3, 'pres.s3')
       doneUrl.value = pres.url
       tailorVisible.value = !!doneUrl.value
       pres.s3.on('httpUploadProgress', async (e: any) => {
         percent.value = (parseInt(e.loaded, 10) / parseInt(e.total, 10)) * 100
         percent.value = parseInt(percent.value.toFixed(2))
+        console.log('1111111111')
       })
       await pres.s3.done()
     }
