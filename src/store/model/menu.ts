@@ -1,5 +1,10 @@
 export const componentMenus = [
   {
+    title: 'Highlight',
+    path: '/components/highlight',
+    key: 'codeHighlight'
+  },
+  {
     title: '登录',
     path: '/components/login',
     key: 'Login',
@@ -10,11 +15,6 @@ export const componentMenus = [
         key: 'vbenLogin'
       }
     ]
-  },
-  {
-    title: '代码预览',
-    path: '/components/highlight',
-    key: 'codeHighlight'
   },
   {
     title: '上传',
@@ -49,7 +49,7 @@ export const TsMenus = [
 ]
 export const UtilsMenus = [
   {
-    title: '工具类',
+    title: 'Http',
     path: '/utils',
     key: 'utils',
     subs: [
@@ -57,6 +57,18 @@ export const UtilsMenus = [
         title: 'vben axios 封装',
         path: '/utils/axios',
         key: 'vben axios'
+      }
+    ]
+  },
+  {
+    title: 'Down',
+    path: '/utils/down',
+    key: 'down',
+    subs: [
+      {
+        title: '下载一个链接资源',
+        path: '/utils/down/link',
+        key: 'downLink'
       }
     ]
   }

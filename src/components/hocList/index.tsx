@@ -2,6 +2,7 @@ import { defineComponent, PropType } from 'vue'
 import homeStyle from './index.module.less'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import { Button } from 'ant-design-vue'
 interface viewItem {
   name: string
   path: string
@@ -17,12 +18,14 @@ export default defineComponent({
       required: true
     }
   },
+  components: {
+    [Button.name]: Button
+  },
   setup(props, { slots }) {
     const store = useStore()
     const router = useRouter()
-    const handleClick = (e: MouseEvent, targetView: viewItem) => {
+    const handleClick = (targetView: viewItem) => {
       store.commit('setActiveMenu', targetView.name)
-      e.preventDefault()
       router.push({ path: targetView.path })
     }
     return () => {
@@ -38,13 +41,13 @@ export default defineComponent({
                   <div class={homeStyle.cardTop}>{item.name}</div>
                   <div class="card-body">
                     <p class="card-text">{item.desc}</p>
-                    <a
-                      href="#"
-                      class="btn btn-primary"
-                      onClick={(e) => handleClick(e, item)}
+                    <a-button
+                      style="padding:0"
+                      type="link"
+                      onClick={() => handleClick(item)}
                     >
-                      Go
-                    </a>
+                      more...
+                    </a-button>
                   </div>
                 </div>
               </div>

@@ -3,23 +3,9 @@
     style="background-color: #ffffff"
     class="blog-header lh-1 py-3 border-bottom mb-4"
   >
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1"></div>
-      <div class="col-4 text-center">
-        <a
-          href="/"
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
-        >
-          <svg class="bi me-2" width="40" height="32">
-            <use xlink:href="#bootstrap" />
-          </svg>
-          <span class="fs-4">This is a Simple header</span>
-        </a>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
-      </div>
-    </div>
+    <div
+      class="row flex-nowrap justify-content-between align-items-center"
+    ></div>
   </header>
 </template>
 

@@ -13,6 +13,18 @@ export default [
     ]
   },
   {
+    path: '/utils/down',
+    name: 'down',
+    component: RouterView,
+    children: [
+      {
+        path: '/utils/down/link',
+        name: 'downLink',
+        component: () => import('@/views/h5/utils/download/downLink')
+      }
+    ]
+  },
+  {
     path: '/components/highlight',
     name: 'highlight',
     component: () => import('@/components/highlight')
