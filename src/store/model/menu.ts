@@ -73,10 +73,19 @@ export const UtilsMenus = [
     ]
   }
 ]
+
+export const BasicMenus = [
+  {
+    title: 'interview',
+    path: '/basic/index',
+    key: 'basic'
+  }
+]
 export enum Menus {
   Components = 'componentMenus',
   TypeScript = 'TsMenus',
-  Utils = 'UtilsMenus'
+  Utils = 'UtilsMenus',
+  Basic = 'BasicMenus'
 }
 
 export interface menuType {

@@ -1,10 +1,16 @@
 import type { menuType, menuName } from '@/store/model/menu'
 import { Menus } from '@/store/model/menu'
-import { componentMenus, TsMenus, UtilsMenus } from '@/store/model/menu'
+import {
+  componentMenus,
+  TsMenus,
+  UtilsMenus,
+  BasicMenus
+} from '@/store/model/menu'
 interface menuState {
   componentMenus: menuType[]
   TsMenus: menuType[]
   UtilsMenus: menuType[]
+  BasicMenus: menuType[]
   activeMenu: string
 }
 export default {
@@ -13,6 +19,7 @@ export default {
     componentMenus,
     TsMenus,
     UtilsMenus,
+    BasicMenus,
     activeMenu: 'componentMenus'
   }),
   mutations: {

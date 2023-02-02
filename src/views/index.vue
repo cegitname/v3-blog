@@ -26,39 +26,14 @@ export default defineComponent({
         desc: 'Tool class implementation'
       },
       {
-        name: 'JavaScript',
-        path: '/javascrpt',
-        desc: 'https://developer.mozilla.org'
+        name: 'Basic',
+        path: '/basic/index',
+        desc: 'Basic'
       },
       {
         name: 'TypeScript',
         path: '/ts/inPro',
         desc: 'https://www.typescriptlang.org/'
-      },
-      {
-        name: 'Vue',
-        path: '/vue',
-        desc: 'https://cn.vuejs.org/'
-      },
-      {
-        name: 'Node',
-        path: '/node',
-        desc: 'https://nodejs.org/en/'
-      },
-      {
-        name: 'Webpack',
-        path: '/webpack',
-        desc: 'https://webpack.js.org/'
-      },
-      {
-        name: 'React',
-        path: '/react',
-        desc: 'https://reactjs.org/'
-      },
-      {
-        name: 'Vite',
-        path: '/vite',
-        desc: 'https://vitejs.dev/'
       },
       {
         name: 'Others',

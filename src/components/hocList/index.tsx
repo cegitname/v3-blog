@@ -37,7 +37,7 @@ export default defineComponent({
               slots.default(item)
             ) : (
               <div class="col-3">
-                <div class="card shadow-sm">
+                <div class={['card', 'shadow-sm', 'cardsss']}>
                   <div class={homeStyle.cardTop}>{item.name}</div>
                   <div class="card-body">
                     <p class="card-text">{item.desc}</p>
