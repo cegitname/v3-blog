@@ -7,6 +7,7 @@ export default defineComponent({
     return () => {
       return (
         <div>
+          1234
           <article-list data={data}></article-list>
         </div>
       )
