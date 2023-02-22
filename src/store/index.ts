@@ -9,7 +9,17 @@ const modules: any = modulesFiles
     return moduless
   }, {})
 const store = createStore({
-  modules
+  modules,
+  getters: {
+    activeMenu: (state: any) => {
+      console.log(state.menus.activeMenu, ' state.menus.activeMenu')
+      console.log(
+        sessionStorage.getItem('activeMenu'),
+        'sessionStorage.getItem'
+      )
+      return state.menus.activeMenu || sessionStorage.getItem('activeMenu')
+    }
+  }
 })
 
 export default store

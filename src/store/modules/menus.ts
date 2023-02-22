@@ -20,11 +20,12 @@ export default {
     TsMenus,
     UtilsMenus,
     BasicMenus,
-    activeMenu: 'componentMenus'
+    activeMenu: ''
   }),
   mutations: {
     setActiveMenu(state: menuState, activeMenu: menuName) {
       state.activeMenu = Menus[activeMenu]
+      sessionStorage.activeMenu = Menus[activeMenu]
     }
   }
 }

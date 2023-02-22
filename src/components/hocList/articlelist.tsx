@@ -1,7 +1,6 @@
 import { defineComponent, PropType } from 'vue'
 import { List, Avatar } from 'ant-design-vue'
 import style from './article.module.less'
-import { useRouter } from 'vue-router'
 interface DataItem {
   title: string
   icon?: string
@@ -15,19 +14,16 @@ export default defineComponent({
     [List.Item.name]: List.Item,
     [List.Item.Meta.name]: List.Item.Meta
   },
+  emits: ['handleArticle'],
   props: {
     data: {
       type: Array as PropType<DataItem[]>,
       default: () => []
     }
   },
-  setup(props) {
-    const router = useRouter()
+  setup(props, { emit }) {
     const handleArticle = (item: DataItem) => {
-      console.log(item, 'ii')
-      router.push({
-        path: '/ts/inPro/detail'
-      })
+      emit('handleArticle', item)
     }
     return () => {
       const data = props.data
