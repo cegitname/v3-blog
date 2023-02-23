@@ -1,21 +1,26 @@
 <template>
   <div>
     <h4>{{ title }}</h4>
-    <preCode :code="code"></preCode>
+    <div style="margin-top: 18px" v-for="item in code" :key="item.title">
+      <h5>{{ item.title }}</h5>
+      <preCode :code="item.code"></preCode>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { promiseCode } from './data'
+import { useCode } from './data'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'detail',
   setup() {
     const route = useRoute()
+    const res = useCode(route)
+    console.log(res, 'resss')
     return {
-      code: promiseCode,
+      code: res,
       title: route.query.title
     }
   }
