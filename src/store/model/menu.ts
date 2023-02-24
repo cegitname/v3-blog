@@ -76,7 +76,7 @@ export const UtilsMenus = [
 
 export const BasicMenus = [
   {
-    title: 'interview',
+    title: 'Javascript',
     path: '/basic/index',
     key: 'basic'
   }
