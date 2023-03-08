@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useCode } from './data'
+import { useCode } from './codes'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
@@ -33,7 +33,6 @@ export default defineComponent({
   setup() {
     const route = useRoute()
     const res = useCode(route)
-    console.log(res, 'resss')
     return {
       code: res,
       title: route.query.title

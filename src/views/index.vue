@@ -27,7 +27,7 @@ export default defineComponent({
       },
       {
         name: 'Basic',
-        path: '/basic/index',
+        path: '/basic/javascript',
         desc: 'Basic'
       },
       {

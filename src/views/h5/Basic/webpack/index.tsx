@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import articleList from '@/components/hocList/articlelist'
-import { data, listRow } from './data'
+import { data, listRow } from './codes'
 import { useRouter } from 'vue-router'
 export default defineComponent({
   components: { articleList },
@@ -8,7 +8,7 @@ export default defineComponent({
     const router = useRouter()
     const handleItem = (item: listRow) => {
       router.push({
-        path: '/basc/detail',
+        path: '/basc/detail-webpack',
         query: {
           title: item.title,
           codeKey: item.key

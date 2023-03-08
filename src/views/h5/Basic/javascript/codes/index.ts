@@ -1,5 +1,4 @@
-import * as codeData1 from './codeData'
-
+import * as Data from './codeData'
 enum codeKeys {
   Promise = 'promise',
   AbortPromise = 'abortPromise',
@@ -54,17 +53,16 @@ export const data: listRow[] = [
     key: codeKeys.V8
   }
 ]
-
 export const useCode = (route: any) => {
   const codeKey: string = route.query.codeKey
   const codeOpt: codeOptionType = {
-    [codeKeys.Promise]: codeData1.promiseCodeArr,
-    [codeKeys.AbortPromise]: codeData1.abortPromiseCodeArr,
-    [codeKeys.DebounceAndThrottle]: codeData1.DebounceAndThrottleCode,
-    [codeKeys.AsyncPool]: codeData1.AsyncPoolArr,
-    [codeKeys.BFSAndDFS]: codeData1.BFSANDDFSArr,
-    [codeKeys.Cache]: codeData1.Cache,
-    [codeKeys.V8]: codeData1.v8CodeArr
+    [codeKeys.Promise]: Data.promiseCodeArr,
+    [codeKeys.AbortPromise]: Data.abortPromiseCodeArr,
+    [codeKeys.DebounceAndThrottle]: Data.DebounceAndThrottleCode,
+    [codeKeys.AsyncPool]: Data.AsyncPoolArr,
+    [codeKeys.BFSAndDFS]: Data.BFSANDDFSArr,
+    [codeKeys.Cache]: Data.Cache,
+    [codeKeys.V8]: Data.v8CodeArr
   }
   return codeOpt[codeKey]
 }

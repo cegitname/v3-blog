@@ -77,8 +77,13 @@ export const UtilsMenus = [
 export const BasicMenus = [
   {
     title: 'Javascript',
-    path: '/basic/index',
+    path: '/basic/javascript',
     key: 'basic'
+  },
+  {
+    title: 'Webpack',
+    path: '/basc/webpack',
+    key: 'basic-webpack'
   }
 ]
 export enum Menus {
