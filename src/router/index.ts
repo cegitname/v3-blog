@@ -30,11 +30,6 @@ const BaseRoutes: Array<RouteRecordRaw> = [
     path: '/h5list',
     name: 'H5list',
     component: () => import('@/views/index.vue')
-  },
-  {
-    path: '/others',
-    name: 'Others',
-    component: () => import('@/views/others/en.vue')
   }
 ]
 

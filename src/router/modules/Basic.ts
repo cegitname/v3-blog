@@ -18,5 +18,15 @@ export default [
     path: '/basc/detail-webpack',
     name: 'detail-webpack',
     component: () => import('@/views/h5/Basic/webpack/detail.vue')
+  },
+  {
+    path: '/basc/typescript',
+    name: 'basic-typescript',
+    component: () => import('@/views/h5/Basic/typescript')
+  },
+  {
+    path: '/basc/detail-typescript',
+    name: 'detail-typescript',
+    component: () => import('@/views/h5/Basic/typescript/detail.vue')
   }
 ]
