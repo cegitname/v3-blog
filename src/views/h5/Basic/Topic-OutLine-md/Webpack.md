@@ -32,3 +32,26 @@
 # 样式处理
 
 # cssModule
+
+# splitChunks
+
+# sourceMap
+
+# 资源压缩
+
+# 打包优化
+
+# 缩小打包作用域
+
+# DLLplugin
+
+# treeShaking
+
+# 长效缓存
+
+# webpack 打包机制
+
+# 热模块替换
+
+
+# 
