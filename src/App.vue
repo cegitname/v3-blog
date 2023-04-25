@@ -1,5 +1,5 @@
 <template>
-  <div class="container-xxl pb-4">
+  <div class="container-xxl pb-4" @click="handleClick">
     <m-header ref="header" />
   </div>
   <router-view></router-view>
@@ -23,7 +23,12 @@ export default defineComponent({
     const ifAside = computed(() => {
       return false
     })
-    return { ifAside, header }
+
+    const handleClick = () => {
+      const allNodes = document.getElementsByTagName('*')
+      console.log(allNodes, 'allNodes')
+    }
+    return { ifAside, header, handleClick }
   }
 })
 </script>

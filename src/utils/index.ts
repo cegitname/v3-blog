@@ -66,7 +66,7 @@ export function openWindow(
 export function getDynamicProps<T, U>(props: T): Partial<U> {
   const ret: Recordable = {}
 
-  Object.keys(props).map((key) => {
+  Object.keys(props as any).map((key) => {
     ret[key] = unref((props as Recordable)[key])
   })
 
