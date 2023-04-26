@@ -367,7 +367,12 @@ class AutoLogger {
         }
       })
   }
-
+  /**
+   * 根据用户行为，设置 params
+   * case '_click': 点击
+   * case '_track': 埋点
+   * case '_jump': 跳转
+   * */
   _push = (data) => {
     if (data[0] === 'onMedia') {
       this._onMedia(data[1])
