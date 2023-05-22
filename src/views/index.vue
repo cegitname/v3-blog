@@ -27,18 +27,8 @@ export default defineComponent({
       },
       {
         name: 'Basic',
-        path: '/basic/index',
+        path: '/basic/javascript',
         desc: 'Basic'
-      },
-      {
-        name: 'TypeScript',
-        path: '/ts/inPro',
-        desc: 'https://www.typescriptlang.org/'
-      },
-      {
-        name: 'Others',
-        path: '/others',
-        desc: 'Any thing'
       }
     ]
     return {

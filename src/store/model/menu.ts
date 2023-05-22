@@ -40,13 +40,6 @@ export const componentMenus = [
   }
 ]
 
-export const TsMenus = [
-  {
-    title: '项目应用',
-    path: '/ts/inPro',
-    key: 'tsInpro'
-  }
-]
 export const UtilsMenus = [
   {
     title: 'Http',
@@ -76,14 +69,23 @@ export const UtilsMenus = [
 
 export const BasicMenus = [
   {
-    title: 'interview',
-    path: '/basic/index',
+    title: 'Javascript',
+    path: '/basic/javascript',
     key: 'basic'
+  },
+  {
+    title: 'Typescript',
+    path: '/basc/typescript',
+    key: 'basic-typescript'
+  },
+  {
+    title: 'Webpack',
+    path: '/basc/webpack',
+    key: 'basic-webpack'
   }
 ]
 export enum Menus {
   Components = 'componentMenus',
-  TypeScript = 'TsMenus',
   Utils = 'UtilsMenus',
   Basic = 'BasicMenus'
 }
@@ -94,4 +96,4 @@ export interface menuType {
   key: string
   subs?: Array<menuType>
 }
-export type menuName = 'Components' | 'TypeScript' | 'Utils'
+export type menuName = 'Components' | 'Basic' | 'Utils'

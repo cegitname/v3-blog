@@ -50,9 +50,10 @@ export default defineComponent({
     [Menu.Item.name]: Menu.Item
   },
   setup() {
-    const state = useStore().state
+    const store = useStore()
+    const state = store.state
     const router = useRouter()
-    const activeMemuList = state.menus[state.menus.activeMenu]
+    const activeMemuList = state.menus[store.getters.activeMenu]
     const activeMemu = activeMemuList[0]
     const openkeys = ref<string[]>([activeMemu.key])
     const selectedKeys = activeMemu.subs
