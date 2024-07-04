@@ -10,7 +10,6 @@ import { computed, defineComponent, ref } from 'vue'
 import mHeader from '@/layout/mHeader.vue'
 import { curry } from 'lodash'
 
-// text
 export default defineComponent({
   name: 'App',
   components: { mHeader },
