@@ -29,6 +29,11 @@ export default defineComponent({
         name: 'Basic',
         path: '/basic/javascript',
         desc: 'Basic'
+      },
+      {
+        name: 'Imooc',
+        path: '/imooc/js-code',
+        desc: 'js-code'
       }
     ]
     return {

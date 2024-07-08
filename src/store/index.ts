@@ -12,11 +12,6 @@ const store = createStore({
   modules,
   getters: {
     activeMenu: (state: any) => {
-      console.log(state.menus.activeMenu, ' state.menus.activeMenu')
-      console.log(
-        sessionStorage.getItem('activeMenu'),
-        'sessionStorage.getItem'
-      )
       return state.menus.activeMenu || sessionStorage.getItem('activeMenu')
     }
   }
